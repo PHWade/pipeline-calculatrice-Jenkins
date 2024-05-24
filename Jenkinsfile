@@ -39,12 +39,7 @@ pipeline {
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F prog.py'"
                 }
             }
-            post {
-                success {
-                    archiveArtifacts "${env.BUILD_ID}/sources/dist/prog"
-                    sh "apt-get install sudo -y && sudo rm -rf ${env.BUILD_ID}/sources/build ${env.BUILD_ID}/sources/dist"
-                }
-            }
+           
         }
     }
 }
