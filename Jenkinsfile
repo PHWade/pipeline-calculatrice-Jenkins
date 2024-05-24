@@ -4,7 +4,7 @@ pipeline {
         stage('Branch') {
             agent any 
             steps {
-            echo "Main"
+            echo "Main source of truth"
             }
         }
         stage('Build') {
