@@ -39,6 +39,11 @@ pipeline {
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F prog.py'"
                 }
             }
+             post {
+                success {
+                    archiveArtifacts "${env.BUILD_ID}/sources/dist/prog"
+                }
+            }
            
         }
     }
